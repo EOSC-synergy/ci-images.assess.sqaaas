@@ -1,0 +1,48 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/1.7.9
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    github.com/indigo-dc/ci-images:
+      branch: master
+      repo: https://github.com/indigo-dc/ci-images
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/indigo-dc/ci-images git:
+        commands:
+        - /usr/bin/env sh .sqa/script.scummy-xanthic-dodo.sh
+        container: qc.acc_gamy-viridian-armadillo
+  QC.Doc:
+    repos:
+      github.com/indigo-dc/ci-images find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.wimpy-seashell-mayfly.sh
+        container: qc.doc_pretty-auburn-wolverine
+      github.com/indigo-dc/ci-images git:
+        commands:
+        - /usr/bin/env sh .sqa/script.shaky-linen-lizard.sh
+        container: qc.doc_craggy-cobalt-dhole
+  QC.Lic:
+    repos:
+      github.com/indigo-dc/ci-images licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.squeaky-dandelion-donkey.sh
+        container: qc.lic_chewy-periwinkle-deer
+  QC.Sty:
+    repos:
+      github.com/indigo-dc/ci-images hadolint:
+        commands:
+        - /usr/bin/env sh .sqa/script.messy-silver-millipede.sh
+        container: qc.sty_nippy-cerise-eagle
+  QC.Ver:
+    repos:
+      github.com/indigo-dc/ci-images get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.nerdy-plum-okapi.sh
+        container: qc.ver_pretty-beige-heron
+timeout: 5400

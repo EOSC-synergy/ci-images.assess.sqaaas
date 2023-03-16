@@ -1,0 +1,4 @@
+(
+cd github.com/indigo-dc/ci-images &&
+    hadolint ruby/Dockerfile packaging/ubuntu18/Dockerfile packaging/ubuntu16/Dockerfile packaging/centos/Dockerfile bash/Dockerfile base/Dockerfile base/ubuntu/16.04/Dockerfile base/ubuntu/14.04/Dockerfile base/ubuntu/18.04/Dockerfile base/centos/7/Dockerfile erlang/Dockerfile go/Dockerfile java/Dockerfile java/dcache/Dockerfile java/dcache/ubuntu/Dockerfile java/a4c/Dockerfile ansible/ubuntu/Dockerfile ansible/centos/Dockerfile docker/Dockerfile python/Dockerfile python/mysql/Dockerfile python/nose/Dockerfile python/3.6/Dockerfile python/deep-oc/Dockerfile sloc/Dockerfile --failure-threshold error
+)
